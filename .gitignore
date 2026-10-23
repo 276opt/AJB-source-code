@@ -1,0 +1,13 @@
+**/bin/
+**/obj/
+/out/
+/dist/
+/compat/v2/out/
+*.zip
+*.log
+*.user
+*.suo
+.vs/
+.codex/
+.agents/
+Settings.before-*.txt

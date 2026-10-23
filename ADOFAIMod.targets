@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <GameDir>$([System.IO.Path]::GetDirectoryName($(GameExePath)))</GameDir>
+    <GameFileName>$([System.IO.Path]::GetFileNameWithoutExtension($(GameExePath)))</GameFileName>
+    <ManagedAssembliesDir>$(GameDir)\$(GameFileName)_Data\Managed</ManagedAssembliesDir>
+    <!-- Development builds are local unless deployment is explicitly requested. -->
+    <DeployToGame Condition="'$(DeployToGame)' == ''">false</DeployToGame>
+  </PropertyGroup>
+  <Target Name="ValidateGameExePath" BeforeTargets="Build">
+    <Error Text="Game executable does not exist: $(GameExePath)" Condition="!Exists('$(GameExePath)')" />
+  </Target>
+  <Target Name="CopyToOut" AfterTargets="Build">
+    <Exec Command="powershell.exe -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDir)build\StageMod.ps1&quot; -ProjectDirectory &quot;$(ProjectDir).&quot; -PayloadPath &quot;$(TargetPath)&quot;" />
+  </Target>
+  <Target Name="PackageRelease" AfterTargets="CopyToOut" BeforeTargets="DeployAndLaunch" Condition="'$(Configuration)' == 'Release'">
+    <Exec Command="powershell.exe -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDir)build\PackageMod.ps1&quot; -OutDirectory &quot;$(ProjectDir)out&quot; -DistDirectory &quot;$(ProjectDir)dist&quot; -ModName &quot;$(AssemblyName)&quot;" />
+  </Target>
+  <Target Name="DeployAndLaunch" AfterTargets="CopyToOut" Condition="'$(DeployToGame)' == 'true'">
+    <ItemGroup>
+      <DeployFiles Include="$(ProjectDir)out\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DeployFiles)" DestinationFiles="@(DeployFiles->'$(GameDir)\Mods\$(AssemblyName)\%(RecursiveDir)%(Filename)%(Extension)')" />
+    <Exec Command="start &quot;&quot; &quot;$(GameExePath)&quot;" Condition="'$(AutoLaunchGame)' == 'true'" />
+  </Target>
+</Project>

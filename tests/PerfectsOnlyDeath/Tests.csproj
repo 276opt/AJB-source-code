@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/ExtraJudgement/NoCheckpoint.cs" Link="NoCheckpoint.cs" />
+    <Compile Include="../../src/ExtraJudgement/MarginLimitState.cs" Link="MarginLimitState.cs" />
+    <Compile Include="../../src/ExtraJudgement/AprilFools.cs" Link="AprilFools.cs" />
+    <Compile Include="../../src/Core/DisplayErrors.cs" Link="DisplayErrors.cs" />
+    <Compile Include="../../src/Core/TogetherCompatibility.cs" Link="TogetherCompatibility.cs" />
+    <Compile Include="../../src/ExtraJudgement/PerfectsOnlyDeath.cs" Link="PerfectsOnlyDeath.cs" />
+    <Compile Include="../../src/ExtraJudgement/XPerfectOnly.cs" Link="XPerfectOnly.cs" />
+    <Compile Include="../../src/ExtraJudgement/MarginLimitMenu.cs" Link="MarginLimitMenu.cs" />
+    <Compile Include="../../src/ExtraJudgement/NoMissOnly.cs" Link="NoMissOnly.cs" />
+    <Compile Include="../../src/Bar/MeterWatcher.cs" Link="MeterWatcher.cs" />
+  </ItemGroup>
+</Project>

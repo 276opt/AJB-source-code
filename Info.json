@@ -1,0 +1,12 @@
+{
+  "Id": "AccurateJudgementBar",
+  "DisplayName": "AccurateJudgementBar",
+  "Author": "opt276",
+  "Version": "2.5.0",
+  "ManagerVersion": "0.27.0",
+  "Requirements": [],
+  "AssemblyName": "AccurateJudgementBar.dll",
+  "EntryMethod": "AccurateJudgementBar.Main.Load",
+  "HomePage": "https://github.com/276opt/Accurate-Judgement-Bar",
+  "Repository": "https://github.com/276opt/Accurate-Judgement-Bar/releases/latest/download/Repository.json"
+}

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../src/ExtraJudgement/MarginLimitState.cs" Link="MarginLimitState.cs" />
+    <Compile Include="../../src/ExtraJudgement/AprilFools.cs" Link="AprilFools.cs" />
+    <Compile Include="../../src/Core/Main.cs" Link="Main.cs" />
+    <Compile Include="../../src/Core/TogetherCompatibility.cs" Link="TogetherCompatibility.cs" />
+    <Compile Include="../../src/Core/DisplayErrors.cs" Link="DisplayErrors.cs" />
+    <Compile Include="../../src/Bar/NativeMeterSettings.cs" Link="NativeMeterSettings.cs" />
+    <Compile Include="../../src/Tick/BetterHit.cs" Link="BetterHit.cs" />
+    <Compile Include="../../src/Tick/LegacyHitVisual.cs" Link="LegacyHitVisual.cs" />
+    <EmbeddedResource Include="../../Resources/legacy_tick.png" LogicalName="AccurateJudgementBar.legacy_tick.png" />
+    <Compile Include="../../src/ExtraJudgement/TickMarginScaleFix.cs" Link="TickMarginScaleFix.cs" />
+    <Compile Include="../../src/ExtraJudgement/StrictOnly.cs" Link="StrictOnly.cs" />
+    <Compile Include="../../src/ExtraJudgement/StartingBpmWarning.cs" Link="StartingBpmWarning.cs" />
+    <Compile Include="../../src/ExtraJudgement/StartingBpmWarningLayout.cs" Link="StartingBpmWarningLayout.cs" />
+    <Compile Include="../../src/Bar/FailureJudgement.cs" Link="FailureJudgement.cs" />
+    <Compile Include="../../src/Bar/FailureBandAnimation.cs" Link="FailureBandAnimation.cs" />
+    <Compile Include="../../src/Bar/ErrorMeterSizeSettings.cs" Link="ErrorMeterSizeSettings.cs" />
+    <Compile Include="../../src/Bar/MeterPosition.cs" Link="MeterPosition.cs" />
+  </ItemGroup>
+</Project>

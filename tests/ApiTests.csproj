@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><EnableDefaultCompileItems>false</EnableDefaultCompileItems></PropertyGroup>
+  <PropertyGroup>
+    <GameExePath Condition="'$(GameExePath)' == ''">C:\Program Files (x86)\Steam\steamapps\common\A Dance of Fire and Ice\A Dance of Fire and Ice.exe</GameExePath>
+    <GameDir>$([System.IO.Path]::GetDirectoryName($(GameExePath)))</GameDir>
+    <GameFileName>$([System.IO.Path]::GetFileNameWithoutExtension($(GameExePath)))</GameFileName>
+    <ManagedAssembliesDir Condition="'$(ManagedAssembliesDir)' == ''">$(GameDir)\$(GameFileName)_Data\Managed</ManagedAssembliesDir>
+  </PropertyGroup>
+  <ItemGroup><Compile Include="../src/Api/JudgementApi.cs" Link="JudgementApi.cs"/><Compile Include="Program.cs"/><Compile Include="../src/Bar/FailureBandAnimation.cs" Link="FailureBandAnimation.cs"/><Compile Include="GameMetadata.cs"/></ItemGroup>
+  <ItemGroup>
+    <Compile Include="../src/Core/GameCompatibility.cs" Link="GameCompatibility.cs" />
+    <Compile Include="GameCompatibilityTests.cs" />
+    <Compile Include="../src/Bar/JudgementBandAnimation.cs" Link="JudgementBandAnimation.cs" />
+    <Compile Include="JudgementBandAnimationTests.cs" />
+    <Compile Include="../src/Bar/MeterBandLayout.cs" Link="MeterBandLayout.cs" />
+    <Compile Include="NativeDisplayTests.cs" />
+    <Compile Include="../src/Bar/XPerfectOutlineMesh.cs" Link="XPerfectOutlineMesh.cs" />
+    <Compile Include="MeshStubs.cs" />
+    <Compile Include="OutlineMeshTests.cs" />
+    <Compile Include="../src/Bar/XPerfectGradient.cs" Link="XPerfectGradient.cs" />
+    <Compile Include="VanillaXPerfectStyleTests.cs" />
+    <Compile Include="../src/Core/NativeXPerfect.cs" Link="NativeXPerfect.cs" />
+    <Compile Include="NativeXPerfectTests.cs" />
+    <Compile Include="../src/Settings/Localization.cs" Link="Localization.cs" />
+    <Compile Include="LocalizationTests.cs" />
+    <EmbeddedResource Include="../Languages/en.json" LogicalName="AccurateJudgementBar.Languages.en.json" />
+    <None Include="../Languages/*.json" Link="Languages/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(ManagedAssembliesDir)\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
+
